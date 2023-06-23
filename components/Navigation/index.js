@@ -3,14 +3,13 @@ import Link from "next/link";
 
 export default function Navigation() {
   return (
-    <>
-      <p>
+    <ul>
+      <li>
         <Link href="../spotlight">Spotlight</Link>
-      </p>
-
-      <p>
-        <Link href="../pieces">Pieces</Link>
-      </p>
-    </>
+      </li>
+      <li>
+        <Link href="../pieces">Art Pieces</Link>
+      </li>
+    </ul>
   );
 }
