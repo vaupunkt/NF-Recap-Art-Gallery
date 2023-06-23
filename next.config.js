@@ -15,4 +15,10 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = {
+  nextConfig,
+  reactStrictMode: true,
+  images: {
+    domains: ["images.unsplash.com"],
+  },
+};
