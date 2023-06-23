@@ -2,18 +2,6 @@ import Image from "next/image";
 
 
 export default function Spotlight({ image, artist, pieces }) {
-  const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
-  const { data, error } = useSWR(URL, fetcher, {
-    refreshInterval: 1000,
-  });
-
-  if (error) {
-    return <h1>failed to load</h1>;
-  }
-  if (!data) {
-    return <h1>loading...</h1>;
-  }
 
   const randomIndex = Math.floor(Math.random() * data.length);
 
