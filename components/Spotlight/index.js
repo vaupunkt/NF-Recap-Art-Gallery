@@ -15,7 +15,7 @@ export default function Spotlight({ image, artist, pieces }) {
         width={500}
         alt={`A picture of ${pieces[randomIndex].name} from ${pieces[randomIndex].artist}`}
       />
-      <p>{data[randomIndex].artist}</p>
+      <p>{pieces[randomIndex].artist}</p>
     </main>
   );
 }
