@@ -7,7 +7,7 @@ export default function ArtPiecesPreview({
   title,
   artist,
   slug,
-  isFavorite,
+  artPiecesInfo,
   onToggleFavorite,
 }) {
   return (
@@ -18,8 +18,8 @@ export default function ArtPiecesPreview({
       <h2>{title}</h2>
       <p>{artist}</p>
       <FavoriteButton
-        isFavorite={isFavorite}
-        handleToggleFavorite={onToggleFavorite}
+        artPiecesInfo={artPiecesInfo}
+        onToggleFavorite={onToggleFavorite}
         slug={slug}
       />
     </>

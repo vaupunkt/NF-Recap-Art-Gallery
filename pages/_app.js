@@ -23,8 +23,6 @@ export default function App({ Component, pageProps }) {
   const { data, error, isLoading } = useSWR(url, fetcher);
   const [artPiecesInfo, setArtPiecesInfo] = useState([]);
 
-  console.log(artPiecesInfo);
-
   function handleToggleFavorite(slug) {
     setArtPiecesInfo((artPiecesInfo) => {
       const info = artPiecesInfo.find((info) => info.slug === slug);
@@ -37,6 +35,7 @@ export default function App({ Component, pageProps }) {
 
       return [...artPiecesInfo, { slug, isFavorite: true }];
     });
+    console.log(artPiecesInfo);
   }
 
   if (error) return <div>failed to load</div>;
@@ -45,7 +44,6 @@ export default function App({ Component, pageProps }) {
   const randomIndex = Math.floor(Math.random() * data.length);
   const randomImage = data[randomIndex].imageSource;
   const randomArtist = data[randomIndex].artist;
-  console.log(artPiecesInfo);
 
   return (
     <>
