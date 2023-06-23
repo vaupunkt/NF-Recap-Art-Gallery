@@ -24,13 +24,17 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
+  const randomIndex = Math.floor(Math.random() * data.length);
+  const randomImage = data[randomIndex].imageSource;
+  const randomArtist = data[randomIndex].artist;
+
   return (
     <>
       <GlobalStyle />
       <Component
         {...pageProps}
-        image={data.imageSource}
-        artist={data.artist}
+        image={randomImage}
+        artist={randomArtist}
         pieces={data}
       />
       <Layout />

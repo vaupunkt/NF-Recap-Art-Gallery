@@ -8,7 +8,7 @@ export default function Navigation() {
         <Link href="/">Spotlight</Link>
       </li>
       <li>
-        <Link href="../../art-pieces">Art Pieces</Link>
+        <Link href="/art-pieces">Art Pieces</Link>
       </li>
     </ul>
   );
