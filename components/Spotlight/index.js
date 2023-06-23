@@ -9,7 +9,7 @@ export default function Spotlight({ image, artist, pieces }) {
     <main>
       <h1>Art gallery</h1>
       <Image
-        name={data[randomIndex].name}
+        name={pieces[randomIndex].name}
         src={data[randomIndex].imageSource}
         height={500}
         width={500}
