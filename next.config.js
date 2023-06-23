@@ -19,6 +19,6 @@ module.exports = {
   nextConfig,
   reactStrictMode: true,
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["example-apis.vercel.app"],
   },
 };
