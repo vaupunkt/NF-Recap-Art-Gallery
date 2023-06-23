@@ -45,9 +45,7 @@ export default function App({ Component, pageProps }) {
   const randomIndex = Math.floor(Math.random() * data.length);
   const randomImage = data[randomIndex].imageSource;
   const randomArtist = data[randomIndex].artist;
-  const { isFavorite } = artPiecesInfo.find((info) => info.slug === slug) ?? {
-    isFavorite: false,
-  };
+  console.log(artPiecesInfo);
 
   return (
     <>
@@ -57,8 +55,8 @@ export default function App({ Component, pageProps }) {
         image={randomImage}
         artist={randomArtist}
         pieces={data}
+        artPiecesInfo={artPiecesInfo}
         onToggleFavorite={handleToggleFavorite}
-        isFavorite={isFavorite}
       />
       <Layout />
     </>

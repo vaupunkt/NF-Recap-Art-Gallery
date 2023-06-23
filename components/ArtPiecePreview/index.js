@@ -6,12 +6,9 @@ export default function ArtPiecesPreview({
   image,
   title,
   artist,
-  width,
-  height,
   slug,
   isFavorite,
-  artPiecesInfo,
-  handleToggleFavorite,
+  onToggleFavorite,
 }) {
   return (
     <>
@@ -22,7 +19,8 @@ export default function ArtPiecesPreview({
       <p>{artist}</p>
       <FavoriteButton
         isFavorite={isFavorite}
-        handleToggleFavorite={handleToggleFavorite}
+        handleToggleFavorite={onToggleFavorite}
+        slug={slug}
       />
     </>
   );

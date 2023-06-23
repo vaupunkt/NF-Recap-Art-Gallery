@@ -2,16 +2,14 @@ import ArtPieces from "../../components/ArtPieces/index.js";
 
 export default function ArtPiecesPage({
   pieces,
-  isFavorite,
-  handleToggleFavorite,
+  onToggleFavorite,
   artPieceInfo,
 }) {
   return (
     <ArtPieces
-      isFavorite={isFavorite}
-      handleToggleFavorite={handleToggleFavorite}
+      onToggleFavorite={onToggleFavorite}
       pieces={pieces}
-      artPieceinfo={artPieceinfo}
+      artPieceInfo={artPieceInfo}
     />
   );
 }
