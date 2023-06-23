@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import GlobalStyle from "../styles";
 import useSWR from "swr";
+import { useState } from "react";
 
 const url = "https://example-apis.vercel.app/api/art";
 const fetcher = async (url) => {
@@ -20,6 +21,23 @@ const fetcher = async (url) => {
 
 export default function App({ Component, pageProps }) {
   const { data, error, isLoading } = useSWR(url, fetcher);
+  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+
+  console.log(artPiecesInfo);
+
+  function handleToggleFavorite(slug) {
+    setArtPiecesInfo((artPiecesInfo) => {
+      const info = artPiecesInfo.find((info) => info.slug === slug);
+
+      if (info) {
+        return artPiecesInfo.map((info) =>
+          info.slug === slug ? { ...info, isFavorite: !info.isFavorite } : info
+        );
+      }
+
+      return [...artPiecesInfo, { slug, isFavorite: true }];
+    });
+  }
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
@@ -27,6 +45,9 @@ export default function App({ Component, pageProps }) {
   const randomIndex = Math.floor(Math.random() * data.length);
   const randomImage = data[randomIndex].imageSource;
   const randomArtist = data[randomIndex].artist;
+  const { isFavorite } = artPiecesInfo.find((info) => info.slug === slug) ?? {
+    isFavorite: false,
+  };
 
   return (
     <>
@@ -36,6 +57,8 @@ export default function App({ Component, pageProps }) {
         image={randomImage}
         artist={randomArtist}
         pieces={data}
+        onToggleFavorite={handleToggleFavorite}
+        isFavorite={isFavorite}
       />
       <Layout />
     </>
