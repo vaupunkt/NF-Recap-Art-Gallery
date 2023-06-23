@@ -5,10 +5,10 @@ export default function Navigation() {
   return (
     <ul>
       <li>
-        <Link href="../spotlight">Spotlight</Link>
+        <Link href="/">Spotlight</Link>
       </li>
       <li>
-        <Link href="../pieces">Art Pieces</Link>
+        <Link href="../../art-pieces">Art Pieces</Link>
       </li>
     </ul>
   );

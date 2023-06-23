@@ -1,3 +1,4 @@
+import Layout from "@/components/Layout";
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 
@@ -26,7 +27,12 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} pieces={data} />
+      <Component
+        {...pageProps}
+        image={data.imageSource}
+        artist={data.artist}
+        pieces={data}
+      />
       <Layout />
     </>
   );

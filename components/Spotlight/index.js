@@ -1,9 +1,7 @@
 import Image from "next/image";
 
-
 export default function Spotlight({ image, artist, pieces }) {
-
-  const randomIndex = Math.floor(Math.random() * data.length);
+  const randomIndex = Math.floor(Math.random() * pieces.length);
 
   return (
     <main>

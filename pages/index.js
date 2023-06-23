@@ -1,5 +1,5 @@
-import ArtPieces from "../components/ArtPieces/index.js";
+import Spotlight from "@/components/Spotlight/index.js";
 
-export default function Homepage({ pieces }) {
-  return <ArtPieces pieces={pieces} />;
+export default function SpotlightPage({ pieces, artist, image }) {
+  return <Spotlight image={image} artist={artist} pieces={pieces} />;
 }
