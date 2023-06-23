@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ArtPiecesPreview({
   image,
@@ -6,10 +7,13 @@ export default function ArtPiecesPreview({
   artist,
   width,
   height,
+  slug,
 }) {
   return (
     <>
-      <Image src={image} alt={title} width={width} height={height}></Image>
+      <Link href={`/art-pieces/${slug}`}>
+        <Image src={image} alt={title} width={250} height={250}></Image>
+      </Link>
       <h2>{title}</h2>
       <p>{artist}</p>
     </>
