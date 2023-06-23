@@ -1,7 +1,5 @@
-export default function HomePage() {
-  return (
-    <div>
-      <h1>Hello from Next.js</h1>
-    </div>
-  );
+import ArtPieces from "../components/ArtPieces/index.js";
+
+export default function Homepage({ pieces }) {
+  return <ArtPieces pieces={pieces} />;
 }
