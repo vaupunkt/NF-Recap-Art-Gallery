@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const URL = "https://example-apis.vercel.app/api/art";
 
-export default function Spotlight() {
+export default function Spotlight({ image, artist, pieces }) {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, error } = useSWR(URL, fetcher, {
