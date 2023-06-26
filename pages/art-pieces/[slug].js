@@ -19,8 +19,10 @@ export default function ArtPieceDetailsPage({
       year={artPiece.year}
       genre={artPiece.genre}
       slug={artPiece.slug}
-      onToggleFavorite={onToggleFavorite}
-      artPiecesInfo={artPiecesInfo}
+      onToggleFavorite={() => onToggleFavorite(slug)}
+      isFavorite={
+        artPiecesInfo?.find((piece) => piece.slug === slug)?.isFavorite
+      }
     />
   );
 }

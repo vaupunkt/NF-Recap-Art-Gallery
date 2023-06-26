@@ -21,6 +21,7 @@ const fetcher = async (url) => {
 
 export default function App({ Component, pageProps }) {
   const { data, error, isLoading } = useSWR(url, fetcher);
+
   const [artPiecesInfo, setArtPiecesInfo] = useState([]);
 
   function handleToggleFavorite(slug) {
@@ -40,18 +41,11 @@ export default function App({ Component, pageProps }) {
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
-
-  const randomIndex = Math.floor(Math.random() * data.length);
-  const randomImage = data[randomIndex].imageSource;
-  const randomArtist = data[randomIndex].artist;
-
   return (
     <>
       <GlobalStyle />
       <Component
         {...pageProps}
-        image={randomImage}
-        artist={randomArtist}
         pieces={data}
         artPiecesInfo={artPiecesInfo}
         onToggleFavorite={handleToggleFavorite}

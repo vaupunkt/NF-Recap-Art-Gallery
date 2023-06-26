@@ -7,9 +7,8 @@ export default function ArtPieceDetails({
   artist,
   year,
   genre,
-  slug,
+  isFavorite,
   onToggleFavorite,
-  artPiecesInfo,
 }) {
   return (
     <>
@@ -17,9 +16,8 @@ export default function ArtPieceDetails({
         Back
       </button>
       <FavoriteButton
-        artPiecesInfo={artPiecesInfo}
+        isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}
-        slug={slug}
       />
       <Image src={image} alt={title} height="100" width="100" />
       <h2>{title}</h2>
