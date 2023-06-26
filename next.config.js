@@ -2,6 +2,7 @@
 const nextConfig = {
   compiler: {
     styledComponents: true,
+    presets: ["next/babel"],
   },
   reactStrictMode: true,
   webpack(config) {
