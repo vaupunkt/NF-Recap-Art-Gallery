@@ -36,7 +36,6 @@ export default function App({ Component, pageProps }) {
 
       return [...artPiecesInfo, { slug, isFavorite: true }];
     });
-    console.log(artPiecesInfo);
   }
 
   if (error) return <div>failed to load</div>;

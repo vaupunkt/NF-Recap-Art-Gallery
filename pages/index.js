@@ -1,21 +1,31 @@
 import Spotlight from "@/components/Spotlight/index.js";
+import { useEffect, useState } from "react";
 
 export default function SpotlightPage({
   pieces,
   artPiecesInfo,
   onToggleFavorite,
 }) {
-  const randomIndex = Math.floor(Math.random() * pieces.length);
-  const randomPiece = pieces[randomIndex];
+  const [currentPiece, setCurrentPiece] = useState(null);
+
+  useEffect(() => {
+    const randomPiece = pieces[Math.floor(Math.random() * pieces.length)];
+    setCurrentPiece(randomPiece);
+  }, [pieces]);
+
   return (
-    <Spotlight
-      image={randomPiece.imageSource}
-      artist={randomPiece.artist}
-      onToggleFavorite={() => onToggleFavorite(randomPiece.slug)}
-      isFavorite={
-        artPiecesInfo?.find((piece) => piece.slug === randomPiece.slug)
-          ?.isFavorite
-      }
-    />
+    <>
+      {currentPiece && (
+        <Spotlight
+          image={currentPiece.imageSource}
+          artist={currentPiece.artist}
+          onToggleFavorite={() => onToggleFavorite(currentPiece.slug)}
+          isFavorite={
+            artPiecesInfo?.find((piece) => piece.slug === currentPiece.slug)
+              ?.isFavorite
+          }
+        />
+      )}
+    </>
   );
 }
