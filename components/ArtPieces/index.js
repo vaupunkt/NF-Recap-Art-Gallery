@@ -4,7 +4,6 @@ export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {
   return (
     <ul>
       {pieces.map((piece) => {
-        const slug = piece.slug;
         return (
           <li key={piece.slug}>
             <ArtPiecesPreview
@@ -14,7 +13,7 @@ export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {
               slug={piece.slug}
               onToggleFavorite={() => onToggleFavorite(slug)}
               isFavorite={
-                artPiecesInfo?.find((artPiece) => artPiece.slug === slug)
+                artPiecesInfo?.find((artPiece) => artPiece.slug === piece.slug)
                   ?.isFavorite
               }
             ></ArtPiecesPreview>
