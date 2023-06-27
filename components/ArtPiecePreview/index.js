@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import FavoriteButton from "../FavoriteButton";
 
 export default function ArtPiecesPreview({
   image,
   title,
   artist,
-  width,
-  height,
   slug,
+  isFavorite,
+  onToggleFavorite,
 }) {
   return (
     <>
@@ -16,6 +17,10 @@ export default function ArtPiecesPreview({
       </Link>
       <h2>{title}</h2>
       <p>{artist}</p>
+      <FavoriteButton
+        onToggleFavorite={onToggleFavorite}
+        isFavorite={isFavorite}
+      />
     </>
   );
 }

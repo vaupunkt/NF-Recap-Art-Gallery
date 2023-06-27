@@ -1,6 +1,6 @@
 import ArtPiecesPreview from "../ArtPiecePreview";
 
-export default function ArtPieces({ pieces }) {
+export default function ArtPieces({ pieces, onToggleFavorite, artPiecesInfo }) {
   return (
     <ul>
       {pieces.map((piece) => {
@@ -10,9 +10,12 @@ export default function ArtPieces({ pieces }) {
               image={piece.imageSource}
               title={piece.name}
               artist={piece.artist}
-              height={piece.dimensions.height}
-              width={piece.dimensions.width}
               slug={piece.slug}
+              onToggleFavorite={() => onToggleFavorite(slug)}
+              isFavorite={
+                artPiecesInfo?.find((artPiece) => artPiece.slug === piece.slug)
+                  ?.isFavorite
+              }
             ></ArtPiecesPreview>
           </li>
         );

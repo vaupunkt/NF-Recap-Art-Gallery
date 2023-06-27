@@ -1,22 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import ArtPieceDetails from ".";
+import { piece } from "../../utils/testPiece.js";
 
 test("art piece image is displayed", () => {
-  const piece = {
-    slug: "orange-red-and-green",
-    artist: "Steve Johnson",
-    name: "Orange Red and Green Abstract Painting",
-    imageSource:
-      "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
-    year: "2018",
-    genre: "Abstract Painting",
-    colors: ["#0f5855", "#e6ba15", "#b42011", "#cec4c6", "#d5561f"],
-    dimensions: {
-      height: 2432,
-      width: 1920,
-      type: "jpg",
-    },
-  };
   render(
     <ArtPieceDetails
       image={piece.imageSource}
@@ -31,21 +17,6 @@ test("art piece image is displayed", () => {
 });
 
 test("art piece title is displayed", () => {
-  const piece = {
-    slug: "orange-red-and-green",
-    artist: "Steve Johnson",
-    name: "Orange Red and Green Abstract Painting",
-    imageSource:
-      "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
-    year: "2018",
-    genre: "Abstract Painting",
-    colors: ["#0f5855", "#e6ba15", "#b42011", "#cec4c6", "#d5561f"],
-    dimensions: {
-      height: 2432,
-      width: 1920,
-      type: "jpg",
-    },
-  };
   render(
     <ArtPieceDetails
       image={piece.imageSource}
@@ -60,21 +31,6 @@ test("art piece title is displayed", () => {
 });
 
 test("art piece artist is displayed", () => {
-  const piece = {
-    slug: "orange-red-and-green",
-    artist: "Steve Johnson",
-    name: "Orange Red and Green Abstract Painting",
-    imageSource:
-      "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
-    year: "2018",
-    genre: "Abstract Painting",
-    colors: ["#0f5855", "#e6ba15", "#b42011", "#cec4c6", "#d5561f"],
-    dimensions: {
-      height: 2432,
-      width: 1920,
-      type: "jpg",
-    },
-  };
   render(
     <ArtPieceDetails
       image={piece.imageSource}
@@ -89,21 +45,6 @@ test("art piece artist is displayed", () => {
 });
 
 test("art piece year is displayed", () => {
-  const piece = {
-    slug: "orange-red-and-green",
-    artist: "Steve Johnson",
-    name: "Orange Red and Green Abstract Painting",
-    imageSource:
-      "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
-    year: "2018",
-    genre: "Abstract Painting",
-    colors: ["#0f5855", "#e6ba15", "#b42011", "#cec4c6", "#d5561f"],
-    dimensions: {
-      height: 2432,
-      width: 1920,
-      type: "jpg",
-    },
-  };
   render(
     <ArtPieceDetails
       image={piece.imageSource}
@@ -118,21 +59,6 @@ test("art piece year is displayed", () => {
 });
 
 test("art piece genre is displayed", () => {
-  const piece = {
-    slug: "orange-red-and-green",
-    artist: "Steve Johnson",
-    name: "Orange Red and Green Abstract Painting",
-    imageSource:
-      "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
-    year: "2018",
-    genre: "Abstract Painting",
-    colors: ["#0f5855", "#e6ba15", "#b42011", "#cec4c6", "#d5561f"],
-    dimensions: {
-      height: 2432,
-      width: 1920,
-      type: "jpg",
-    },
-  };
   render(
     <ArtPieceDetails
       image={piece.imageSource}
@@ -147,21 +73,6 @@ test("art piece genre is displayed", () => {
 });
 
 test("back-button is displayed", () => {
-  const piece = {
-    slug: "orange-red-and-green",
-    artist: "Steve Johnson",
-    name: "Orange Red and Green Abstract Painting",
-    imageSource:
-      "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
-    year: "2018",
-    genre: "Abstract Painting",
-    colors: ["#0f5855", "#e6ba15", "#b42011", "#cec4c6", "#d5561f"],
-    dimensions: {
-      height: 2432,
-      width: 1920,
-      type: "jpg",
-    },
-  };
   render(
     <ArtPieceDetails
       image={piece.imageSource}
@@ -173,4 +84,18 @@ test("back-button is displayed", () => {
   );
   const button = screen.getByRole("button", { name: /back/i });
   expect(button).toBeInTheDocument();
+});
+
+test("favorite-button is displayed in the ArtPiecesDetails-view", () => {
+  render(
+    <ArtPieceDetails
+      image={piece.imageSource}
+      artist={piece.artist}
+      title={piece.title}
+      year={piece.year}
+      genre={piece.genre}
+    />
+  );
+  const favoriteButton = screen.getByLabelText(/favorite-button/i);
+  expect(favoriteButton).toBeInTheDocument();
 });
