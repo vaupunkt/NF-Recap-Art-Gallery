@@ -4,8 +4,7 @@ export default function Favorites({ pieces, onToggleFavorite, artPiecesInfo }) {
   const favorites = pieces
     .map((piece) => {
       const artPiece = artPiecesInfo.find(
-        (artPiece) =>
-          piece.slug === artPiece.slug && artPiece.isFavorite === true
+        (artPiece) => piece.slug === artPiece.slug
       );
       return { ...piece, ...artPiece };
     })
